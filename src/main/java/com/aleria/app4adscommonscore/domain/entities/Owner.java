@@ -5,10 +5,26 @@
  */
 package com.aleria.app4adscommonscore.domain.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Anis
  */
-public class Owner {
+@Entity
+public class Owner implements Serializable {
+
+    @Id
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     
 }
