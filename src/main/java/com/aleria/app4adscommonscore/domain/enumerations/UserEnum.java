@@ -10,5 +10,8 @@ package com.aleria.app4adscommonscore.domain.enumerations;
  * @author Anis
  */
 public enum UserEnum {
-    
+    USER,
+    CLIENT,
+    OWNER,
+    SUPER
 }

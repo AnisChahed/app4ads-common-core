@@ -72,5 +72,92 @@ public class User implements Serializable{
     
     @Column(name = "lastConnection")
     protected LocalDateTime lastConnection;
-    
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long Id) {
+        this.Id = Id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public UserEnum getType() {
+        return type;
+    }
+
+    public void setType(UserEnum type) {
+        this.type = type;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public Boolean getIsSubscribed() {
+        return isSubscribed;
+    }
+
+    public void setIsSubscribed(Boolean isSubscribed) {
+        this.isSubscribed = isSubscribed;
+    }
+
+    public LocalDateTime getCreation() {
+        return creation;
+    }
+
+    public void setCreation(LocalDateTime creation) {
+        this.creation = creation;
+    }
+
+    public LocalDateTime getExpirancy() {
+        return expirancy;
+    }
+
+    public void setExpirancy(LocalDateTime expirancy) {
+        this.expirancy = expirancy;
+    }
+
+    public LocalDateTime getSubscription() {
+        return subscription;
+    }
+
+    public void setSubscription(LocalDateTime subscription) {
+        this.subscription = subscription;
+    }
+
+    public LocalDateTime getLastConnection() {
+        return lastConnection;
+    }
+
+    public void setLastConnection(LocalDateTime lastConnection) {
+        this.lastConnection = lastConnection;
+    }
 }

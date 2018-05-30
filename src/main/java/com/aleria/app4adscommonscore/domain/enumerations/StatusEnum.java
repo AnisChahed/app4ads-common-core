@@ -11,4 +11,8 @@ package com.aleria.app4adscommonscore.domain.enumerations;
  */
 public enum StatusEnum {
     
+    ACCEPTED,
+    DENIED,
+    PENDING,
+    CANCELED
 }

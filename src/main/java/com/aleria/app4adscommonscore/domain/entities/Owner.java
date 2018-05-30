@@ -6,25 +6,36 @@
 package com.aleria.app4adscommonscore.domain.entities;
 
 import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  *
  * @author Anis
  */
 @Entity
-public class Owner implements Serializable {
+@Table(name="com_owner")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+public class Owner extends User implements Serializable {
 
-    @Id
-    private Long id;
+    @Column(name="compagny_name")
+    private String compagny;
+    
+    @OneToMany(mappedBy = "owner")
+    private Set<Panel> panels;
 
-    public Long getId() {
-        return id;
+    public String getCompagny() {
+        return compagny;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCompagny(String compagny) {
+        this.compagny = compagny;
     }
+    
     
 }

@@ -5,13 +5,14 @@
  */
 package com.aleria.app4adscommonscore.domain.entities;
 
-import com.aleria.app4adscommonscore.domain.enumerations.StatusEnum;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -21,19 +22,23 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * @author Anis
  */
 @Entity
-@Table(name="com_status")
+@Table(name="com_compagny")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Status implements Serializable {
+public class Compagny implements Serializable{
 
     @Id
     private Long id;
     
-    @Column(name="update_date")
-    private LocalDateTime updateDate;
-    
-    @Column(name="status")
+    @Column(name = "name")
     @NotNull
-    private StatusEnum status;
+    private String name;
+    
+    @Column(name = "trade_number", unique = true)
+    @NotNull
+    private String tradeNumber;
+    
+    @OneToMany(mappedBy = "compagny")
+    private Set<Client> users;
 
     public Long getId() {
         return id;
@@ -43,19 +48,29 @@ public class Status implements Serializable {
         this.id = id;
     }
 
-    public LocalDateTime getUpdateDate() {
-        return updateDate;
+    public Set<Client> getUsers() {
+        return users;
     }
 
-    public void setUpdateDate(LocalDateTime updateDate) {
-        this.updateDate = updateDate;
+    public void setUsers(Set<Client> users) {
+        this.users = users;
     }
 
-    public StatusEnum getStatus() {
-        return status;
+    public String getName() {
+        return name;
     }
 
-    public void setStatus(StatusEnum status) {
-        this.status = status;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public String getTradeNumber() {
+        return tradeNumber;
+    }
+
+    public void setTradeNumber(String tradeNumber) {
+        this.tradeNumber = tradeNumber;
+    }
+    
+    
 }

@@ -11,4 +11,7 @@ package com.aleria.app4adscommonscore.domain.enumerations;
  */
 public enum PropertyTypeEnum {
     
+    NUMERICAL,
+    STRING,
+    CHARACTER
 }
